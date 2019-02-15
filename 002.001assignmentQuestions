@@ -1,0 +1,109 @@
+! - denotes correct answer
+
+Web Application Security Fundamentals Webinar pt 1 - Questions
+
+At the network level what systems are in place to protect the web server itself?
+
+! - None
+  Because all of the others permit people to access the server, there really isn’t any protection to deal with unauthorized users accessing the network. An experienced hacker will leave little to no footprint.
+  https://youtu.be/bIsl_Hil4WA?t=94
+Firewalls
+  Firewalls must permit access in order for people to see the content. They are designed to protect network-level security issues.
+  https://security.stackexchange.com/questions/54146/can-a-web-server-be-secured-with-just-a-firewall/108376
+Browsers
+  Browsers permit people to access the content on the internet. Most hacking actions are seen as “normal web actions” and will not be considered as malicious by web browsers.
+  https://www.oreilly.com/library/view/web-security-privacy/0596000456/ch01.html
+Routers
+  HTTP/HTTPS traffic is seen as normal activity by the router and server logs and is therefore permitted.
+  https://www.networkworld.com/article/2861234/vulnerability-in-embedded-web-server-exposes-millions-of-routers-to-hacking.html
+
+Good hackers access information on the web server through existing _____________ found within the code
+	security vulnerabilities
+		Security vulnerabilities can include incomplete checks to input fields and outdated user login information.
+	https://blog.templatetoaster.com/top-8-website-vulnerabilities-hacker-can-exploit/
+
+
+Anand Vemuri: Offensive and Defensive Strategies for Client-Side JS Security - JSConf Budapest 2016 - Questions
+
+
+Which is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated?
+
+! -CSRF attack
+	CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request. With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker's choosing. If the victim is a normal user, a successful CSRF attack can force the user to perform state changing requests like transferring funds, changing their email address, and so forth. If the victim is an administrative account, CSRF can compromise the entire web application.
+https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
+Bait and switch
+	Bait and switch hacks make the user think they are running a non-malicious program then redirect to a malicious one.
+	https://cyware.com/news/learn-cyber-bait-and-switch-hacking-ea62f408
+Phishing
+	Phishing is fooling the user to input secure information into a non secure form or a disguised site.
+https://en.wikipedia.org/wiki/Phishing
+Sidejacking
+	Sidejacking is done by obtaining an unsecured cookie(usually over public networks) to gain access to a private site.
+https://www.computerhope.com/jargon/s/sidejacking.htm
+
+
+_______ is a vulnerability that allows attackers to inject client-side scripts into web pages seen by others.
+
+Cross site scripting(xss)
+		Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.
+		https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+
+
+
+
+What steps are taken to prevent JavaScript programs from performing damaging attacks?
+Javascript programs cannot:
+
+Read local files.
+  While this can be done through API’s after direct permission, it cannot be done using JavaScript.
+  https://stackoverflow.com/questions/371875/local-file-access-with-javascript
+Perform networking operations.
+  This can only be done if there is connected, server side JavaScript program that can write files to the server.
+  https://opensourceforu.com/2016/01/an-introduction-to-node-js-the-server-side-javascript
+Access web pages hosted on another domain.
+  Even though multiple web pages can be running within a browser or even a domain, the JavaScript cannot access the information on another domain in order to ensure that there is no data leak.
+https://www.thoughtco.com/what-javascript-cannot-do-2037666
+! - All of the above
+  Reading local files cannot be done through JavaScript, only API’s after the user gives permission.  Network operations can only be done if there is server side JavaScript that can allow and do the writing itself.  JavaScript only has access to the domain in which it is operating.
+  https://stackoverflow.com/questions/371875/local-file-access-with-javascript
+  https://opensourceforu.com/2016/01/an-introduction-to-node-js-the-server-side-javascript
+  https://www.thoughtco.com/what-javascript-cannot-do-2037666
+
+
+OWASP Top 10 - A1 Injection explained - Questions
+
+
+All _______ input data should be considered untrusted.
+
+	user
+		https://security.stackexchange.com/questions/170900/what-is-untrusted-data
+
+Which of the following is the most serious security vulnerability?
+
+! - Injection attacks
+	Injection attacks can expose the code associated with the SQL server, giving the hacker access to information that they should not have. 
+	https://www.acunetix.com/blog/articles/injection-attacks/
+DDoS attacks
+	While DDoS attacks the website through high amounts of traffic, slowing load times or even crashing the server, it is not the most serious security vulnerability.
+  https://www.godaddy.com/garage/distributed-denial-of-service-what-are-ddos-attacks-and-what-can-you-do-to-prevent-them/
+Password attacks
+	Password attacks, if successful, can be very damaging to a site. Thankfully, it is very common to see websites limiting the probability of these types of attacks being successful by: using two-factor authentication, requiring passwords to be changed regularly, limiting login attempts. They are serious, but not as serious as a hacker gaining access to the SQL server code. 
+  https://searchsecurity.techtarget.com/tip/How-to-prevent-password-attacks-and-other-exploits
+Interception
+	With the use of SSL certificates becoming so widespread this type of attack is much harder to pull off.  Interception is done when someone gains access to the information being sent between a user and the web server. With an SSL, this data is encrypted and is very hard for a hacker to gain the key. 
+	https://www.globalsign.com/en/ssl-information-center/what-is-an-ssl-certificate/
+
+Which object is vulnerable to an SQL injection?
+
+! - Input fields
+	Injection happens when the user input is sent to an interpreter and read as a command, not data that has been input.
+	https://www.guru99.com/web-security-vulnerabilities.html#1
+User profile page
+  This is vulnerable to cross site request forgery but not an SQL injection
+  https://www.guru99.com/web-security-vulnerabilities.html#5
+Business transaction page
+	This is vulnerable to cross site request forgery but not an SQL injection
+  https://www.guru99.com/web-security-vulnerabilities.html#5
+Data sent over the network
+	This is vulnerable when there is insufficient transport layer protection.
+	https://www.guru99.com/web-security-vulnerabilities.html#9
